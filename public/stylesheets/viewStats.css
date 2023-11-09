@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 6px;
+  background-color: #0077B6; /* Change background color */
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
+}
+
+header {
+  background: #0077B6; /* Change background color */
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Add box shadow */
+}
+
+#controls {
+  width: 90%;
+  margin: 20px auto;
+  background-color: #f0f0f0; /* Change background color */
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
+}
+
+#stats {
+  width: 90%;
+  margin: 20px auto;
+  background-color: #f0f0f0; /* Change background color */
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
+}
+
+#statsTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#statsTable td,
+#statsTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#statsTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#statsTable tr:hover {
+  background-color: #ddd;
+}
+
+#statsTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0077B6; /* Change background color */
+  color: white;
+}

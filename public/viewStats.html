@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesheets/viewStats.css" />
+    <title>Game Statistics | Quizify</title>
+  </head>
+  <body>
+    <header><h1>Game Statistics</h1></header>
+    <div id="controls" class="flex">
+      <a href="http://localhost:8000/"><button>Play Again</button></a>
+      <a href="./viewStats.html"><button>Refresh</button></a>
+    </div>
+    <div id="stats">
+      <table id="statsTable">
+        <thead>
+          <th>Game Room</th>
+          <th>Players</th>
+          <th>Player 1 Scores</th>
+          <th>Player 2 Scores</th>
+          <th>Winner</th>
+        </thead>
+        <tbody id="statsData"></tbody>
+      </table>
+    </div>
+
+    
+  </body>
+</html>
+<script src="/src/viewStatus.js"></script>

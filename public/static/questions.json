@@ -1,0 +1,49 @@
+{
+  "questions": [
+    {
+      "question": "What is Node.js used for?",
+      "choices": [
+        "Server-side scripting",
+        "Front-end development",
+        "Game development",
+        "Mobile app development"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Which module is used for creating a web server in Node.js?",
+      "choices": ["http", "fs", "path", "url"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "What does npm stand for in the context of Node.js?",
+      "choices": [
+        "Node Package Manager",
+        "New Programming Module",
+        "Node Project Manager",
+        "No Particular Meaning"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Which of the following is not a core module in Node.js?",
+      "choices": [
+        "fs",
+        "http",
+        "express",
+        "os"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "What is the main advantage of using the event-driven, non-blocking I/O model in Node.js?",
+      "choices": [
+        "Improved security",
+        "Simplified debugging",
+        "High concurrency",
+        "Better user interface"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+}
