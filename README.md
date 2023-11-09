@@ -1,4 +1,6 @@
-# leaguex - Real-Time Quiz Application
+# leaguex - Quiz Application
+
+link:- https://leaguex.onrender.com/
 
 leaguex is a real-time quiz application that allows users to engage in a fun and competitive quiz game. This repository contains the source code for leaguex, and it's built using a combination of HTML, CSS, Bootstrap, jQuery, Node.js, Express, and Socket.io.
 

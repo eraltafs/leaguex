@@ -7,7 +7,7 @@ saveBtn.addEventListener("click", async () => {
     win: finalresults,
   };
   saveBtn.innerText = "Saving...";
-  await fetch("http://localhost:8000/save", {
+  await fetch("https://leaguex.onrender.com/save", {
     method: "POST",
     body: JSON.stringify(obj),
     headers: {
@@ -23,7 +23,7 @@ redirectBtn.addEventListener("click", () => {
   console.log("first");
   window.location = "./viewStats.html";
 });
-var socket = io.connect("http://localhost:8000/");
+var socket = io.connect("https://leaguex.onrender.com/");
 var i,
   username,
   j = 0,
@@ -151,7 +151,7 @@ $(document).ready(function () {
       socket.emit("addClient", username);
     } else {
       alert("USERNAME PLEASE!");
-      window.location = "http://localhost:8000/";
+      window.location = "https://leaguex.onrender.com/";
     }
   });
 });

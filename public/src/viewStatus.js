@@ -1,5 +1,5 @@
 let tbody = document.getElementById("statsData");
-fetch("http://localhost:8000/viewstats")
+fetch("https://leaguex.onrender.com/viewstats")
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
