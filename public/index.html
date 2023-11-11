@@ -16,119 +16,103 @@
     <header>
       <h1>Leaguex Quiz Application</h1>
     </header>
-    <div class="row">
-      <div id="realresults" style="display: none">
-        <div class="col-md-12">
-          <div class="col-md-6">
-            <h4>
-              My Score <b><div id="myresult">0</div></b>
-            </h4>
-          </div>
-          <div class="col-md-6" style="text-align: right">
-            <h4>
-              Opponent Score<b><div id="otherresult">0</div></b>
-            </h4>
-          </div>
+
+    <div id="realresults" style="display: none">
+      <div class="flex-score">
+        <div>
+          <h4>
+            My Score <b><div id="myresult">0</div></b>
+          </h4>
+        </div>
+        <div style="text-align: right">
+          <h4>
+            Opponent Score<b><div id="otherresult">0</div></b>
+          </h4>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="rules" style="display: none">
-          <h2 class="mb-5">The game will start in 10 seconds....</h2>
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">Rules</h3>
-            </div>
-            <div class="panel-body">
-              <ul style="text-align: left">
-                <li>
-                  The objective of the game is to answer a series of quiz
-                  questions correctly and earn points.
-                </li>
-                <li>
-                  The game is designed for two players per room. You will be
-                  matched with another player in a room.
-                </li>
-                <li>
-                  Each player will receive quiz questions one by one. There is a
-                  10-second time limit to answer each question.
-                </li>
-                <li>
-                  You earn 10 points for each correct answer. The player with
-                  the highest score at the end of the game wins.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div class="rules" style="display: none">
+      <h2 class="startsin"></h2>
+      <h3 class="panel-title">Rules</h3>
+      <div class="panel-body">
+        <ul>
+          <li>
+            😄 Welcome to our exciting quiz game! The goal of the game 🎮 is to
+            answer quiz questions 📝 correctly and earn points 💯.
+          </li>
+          <li>
+            🏠 You will be matched with another player in a virtual room. Each
+            room has space for two players. 🙌
+          </li>
+          <li>
+            🙋 Each player will receive quiz questions, one by one, and you'll
+            have ⏳10 seconds⏳ to answer each question. ⭐️
+          </li>
+          <li>
+            ✅ For every correct answer, you will earn 👍10 points. So try to
+            answer as many questions correctly as possible to score higher! 🥇
+          </li>
+          <li>
+            🎉 The player with the highest score at the end of the game will be
+            the winner! 🏆
+          </li>
+          <li>Have fun and show off your knowledge! 🤓💡</li>
+        </ul>
       </div>
     </div>
 
-    <div class="row started" id="realtime" style="display: none">
+    <div class="started" id="realtime" style="display: none">
       <div class="question">
-        <div class="row text-center">
-          <div class="col-md-12">
-            <h2>
-              <br />
-              <p id="qst">Sample Question Text</p>
-            </h2>
-          </div>
-        </div>
+        <h2 id="qst">Sample Question Text</h2>
       </div>
 
       <div class="choices">
-        <div class="row">
-          <div class="col-md-4 col-sm-6 col-md-offset-3">
+        <div>
+          <div>
             <button id="btn1" value="">Option 1</button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div>
             <button id="btn2" value="">Option 2</button>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-6 col-md-offset-3">
+        <div>
+          <div>
             <button id="btn3" value="">Option 3</button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div>
             <button id="btn4" value="">Option 4</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="current_res_c text-center" style="display: none">
-      <div class="alert alert-success" role="alert">Correct Answer</div>
+    <div class="currect_ans" style="display: none">
+      <div>✅ Correct Answer</div>
     </div>
 
-    <div class="current_res_w text-center" style="display: none">
-      <div class="alert alert-danger" role="alert">Wrong Answer</div>
+    <div class="wrong_ans" style="display: none">
+      <div>❌ Wrong Answer</div>
     </div>
 
     <div class="intermediate">
-     
+      <div id="conversation"></div>
     </div>
 
-    <div class="just_start">
-      <div class="row text-center">
+    <div class="lets_start">
+      <div class="row">
         <input
           type="text"
           id="input_user"
           placeholder="Enter Your Username..."
           required
         /><br />
-        <button class="btn btn-lg btn-start" id="btnJoin">
-          Start the Game!
-        </button>
+        <button class="btn-start" id="btnJoin">Start the Game!</button>
       </div>
     </div>
-
-    <div id="view_result"></div>
-
     <div class="loading-page" style="display: none">
       <div class="counter">
-        <h3>0sec</h3>
+        <h3>0 sec</h3>
         <hr />
       </div>
     </div>
@@ -136,14 +120,14 @@
     <!--Timer-->
 
     <div id="finalresult_show" style="display: none">
-      <div id="finalresult">Tie</div>
+      <div id="finalresult">TIE</div>
       <br />
-      <p>Click on "Save Stats" to save your points to the database.</p>
+      <p>Click on "Save Stats" to save your score.</p>
       <button id="saveStats">Save Stats</button>
       <button id="redirect">View Stats</button>
-      <div>
-        <a href="https://leaguex.onrender.com/">Play Again...</a>
-      </div>
+      <button class="btn-play">
+        <a href="https://leaguex.onrender.com/">Play Again</a>
+      </button>
     </div>
 
     <script src="/src/script.js"></script>

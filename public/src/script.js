@@ -36,7 +36,12 @@ var i,
 let gameStats = {};
 
 socket.on("updatechat", function (username, data, id) {
-  $("#conversation").append("<br>" + data + "<br>");
+  $("#conversation")
+    .append("<br>" + data + "<br>")
+    .css({
+      padding: "10px",
+      textAlign: "center",
+    });
   user_id = id;
 });
 
@@ -46,6 +51,16 @@ socket.on("game", function (data) {
 
 function doFunction() {
   $(".rules").fadeIn();
+  var counter = 10;
+  var reverseCounter = setInterval(function () {
+    $(".startsin").text("The game will start in " + counter + " seconds....");
+    counter--;
+
+    if (counter < 0) {
+      clearInterval(reverseCounter);
+    }
+  }, 1000);
+
 }
 
 socket.on("sendQuestions", function (data) {
@@ -71,21 +86,22 @@ socket.on("sendQuestions", function (data) {
       $("#btn4").attr("value", 3).text(data.questions[i].choices[3]);
 
       //timer
-      $(document).ready(function () {
-        var counter = 0;
-        var c = 1;
-        var k = setInterval(function () {
-          $(".loading-page .counter h3").html(c + "sec");
-          $(".loading-page .counter hr").css("width", c * 10 + "%");
 
-          counter++;
-          c++;
+      var counter = 0;
+      var c = 1;
+      var r = 9;
+      var k = setInterval(function () {
+        $(".loading-page .counter h3").html(r + " Sec Remaining...");
+        $(".loading-page .counter hr").css("width", c * 10 + "%");
 
-          if (counter == 10) {
-            clearInterval(k);
-          }
-        }, 1000);
-      });
+        counter++;
+        c++;
+        r--;
+
+        if (counter == 10) {
+          clearInterval(k);
+        }
+      }, 1000);
 
       //timer
 
@@ -100,12 +116,12 @@ socket.on("sendQuestions", function (data) {
         if (response) {
           if (j == 1) {
             socket.emit("result", username, user_id);
-            $(".current_res_c").fadeIn().delay(800).fadeOut();
+            $(".currect_ans").fadeIn().delay(800).fadeOut();
             j++;
           }
         } else {
           if (j == 1) {
-            $(".current_res_w").fadeIn().delay(800).fadeOut();
+            $(".wrong_ans").fadeIn().delay(800).fadeOut();
             j++;
           }
         }
@@ -132,26 +148,26 @@ socket.on("viewresult", function (usr) {
   }
 
   if (myscore > otherscore) {
-    $("#finalresult").text("You Win!");
+    $("#finalresult").text("🎉 You Win!");
     finalresults = "Player1";
   } else if (myscore < otherscore) {
-    $("#finalresult").text("You Lose..");
+    $("#finalresult").text("😔 You Lose!");
     finalresults = "Player2";
   } else {
-    $("#finalresult").text("Tie!");
+    $("#finalresult").text("🤝 Tie!");
     finalresults = "Tie";
   }
 });
 
-$(document).ready(function () {
-  $("#btnJoin").click(function () {
-    $(".just_start").fadeOut();
-    username = $("#input_user").val();
-    if (username != "") {
-      socket.emit("addClient", username);
-    } else {
-      alert("USERNAME PLEASE!");
-      window.location = "https://leaguex.onrender.com/";
-    }
-  });
+$("#btnJoin").click(function () {
+  $(".lets_start").fadeOut();
+  let username = $("#input_user").val();
+
+  if (!username) {
+    alert("Please enter your username!");
+    location.href = "https://leaguex.onrender.com/";
+    return;
+  }
+
+  socket.emit("addClient", username);
 });

@@ -95,8 +95,8 @@ io.sockets.on("connection", function (socket) {
           if (err) {
             console.log("Error reading questions file");
           } else {
-            const jsoncontent = JSON.parse(data);
-            io.sockets.in(id).emit("sendQuestions", jsoncontent);
+            const JSONdata = JSON.parse(data);
+            io.sockets.in(id).emit("sendQuestions", JSONdata);
           }
         }
       );
