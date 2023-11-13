@@ -60,7 +60,6 @@ function doFunction() {
       clearInterval(reverseCounter);
     }
   }, 1000);
-
 }
 
 socket.on("sendQuestions", function (data) {
@@ -86,22 +85,23 @@ socket.on("sendQuestions", function (data) {
       $("#btn4").attr("value", 3).text(data.questions[i].choices[3]);
 
       //timer
+      $(document).ready(function () {
+        var counter = 0;
+        var c = 1;
+        var r = 9;
+        var k = setInterval(function () {
+          $(".loading-page .counter h3").html(r + " Sec Remaining...");
+          $(".loading-page .counter hr").css("width", c * 10 + "%");
 
-      var counter = 0;
-      var c = 1;
-      var r = 9;
-      var k = setInterval(function () {
-        $(".loading-page .counter h3").html(r + " Sec Remaining...");
-        $(".loading-page .counter hr").css("width", c * 10 + "%");
+          counter++;
+          c++;
+          r--;
 
-        counter++;
-        c++;
-        r--;
-
-        if (counter == 10) {
-          clearInterval(k);
-        }
-      }, 1000);
+          if (counter == 10) {
+            clearInterval(k);
+          }
+        }, 1000);
+      });
 
       //timer
 
@@ -139,6 +139,8 @@ socket.on("sendQuestions", function (data) {
 });
 
 socket.on("viewresult", function (usr) {
+  console.log("usr:", usr);
+  console.log("username:", username);
   if (usr == username) {
     myscore += 10;
     $("#myresult").text(myscore);
@@ -158,16 +160,15 @@ socket.on("viewresult", function (usr) {
     finalresults = "Tie";
   }
 });
-
-$("#btnJoin").click(function () {
-  $(".lets_start").fadeOut();
-  let username = $("#input_user").val();
-
-  if (!username) {
-    alert("Please enter your username!");
-    location.href = "https://leaguex.onrender.com/";
-    return;
-  }
-
-  socket.emit("addClient", username);
+$(document).ready(function () {
+  $("#btnJoin").click(function () {
+    $(".lets_start").fadeOut();
+    username = $("#input_user").val();
+    if (username != "") {
+      socket.emit("addClient", username);
+    } else {
+      alert("USERNAME PLEASE!");
+      window.location = "https://leaguex.onrender.com/";
+    }
+  });
 });
